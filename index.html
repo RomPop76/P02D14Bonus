@@ -17,9 +17,21 @@
         const $main = $('main');
 
         $doc.on("scroll", function() {
+            // aktualna wartość scrolla
+            const scrollPos = $doc.scrollTop();
+
+            //gdzie (ile pikseli) jest dany element od początku strony
+            const sectionOffset = $main.offset().top;
+          
+            //jaka jest wysokość elementu
+            const headerHeight = $header.outerHeight();
             
-            // console.log("skroluje");
-        })
+
+            $header.css({
+                'opacity': 1 - scrollPos/headerHeight, 
+                'filter' : 'grayscale(' + 2 * scrollPos/headerHeight + ')'
+            }) }
+        
     </script>
 </body>
 </html>
